@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameCore : MonoBehaviour {
-
-	public UnityEngine.UI.InputField Size;
+	
 	bool generateLab = false; 
 	LabirintFactory labFact = new LabirintFactory();
 	ILabirint labirint;
 	IDraw drawLabirint;
 	IFinder finder;
+
+	bool show = false;
+	List<Vector3> path;
+
+	public CreateBlock pool;
 
 	private static GameCore INSTANCE = null;
 
@@ -29,26 +34,34 @@ public class GameCore : MonoBehaviour {
 			GameObject.Destroy (this.gameObject);
 		}
 	}
-	
-	// Update is called once per frame
 
-
-	public void GenerateLabirint()
+	public void GenerateLabirint(int size)
 	{
-		if(Size.text != string.Empty && int.Parse(Size.text) > 2)
+		if(size * size < pool.SizePool)
 		{
-			labirint.Generate (int.Parse(Size.text));
-			drawLabirint.Draw (labirint);
+			show = false;
+			labirint.Generate (size);
+			drawLabirint.Draw (labirint, pool);
 			generateLab = true;
-			LineRenderer lineRender = GameObject.FindObjectOfType<LineRenderer> ();
-			lineRender.SetVertexCount (0);
 		}
 	}
 
 	public void ShowWay()
 	{
 		if (generateLab) {
-			finder.Find (labirint,drawLabirint);	
+			show = true;
+			path = finder.Find (labirint,drawLabirint);	
+		}
+	}
+
+	void OnGUI()
+	{
+		if(show)
+		{
+			for(int i = 0; i < path.Count -1;i++)
+			{
+				Drawing.DrawLine(path[i],path[i+1],Color.green);
+			}
 		}
 	}
 

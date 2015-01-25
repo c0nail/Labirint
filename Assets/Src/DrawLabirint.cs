@@ -13,7 +13,7 @@ public class DrawLabirint : IDraw {
 	Vector3 centerField = Vector3.zero;
 
 	float scale = 1;
-	float distance = 0.9f;
+	float distance = 0.95f;
 	float maxElement = 10;
 
 	string pathToPrefabFruit = "Prefabs/BackLab";
@@ -38,7 +38,7 @@ public class DrawLabirint : IDraw {
 
 		if (maxSize > maxElement) {
 			distance = distance * (maxElement/maxSize);	
-			scale = maxElement/maxSize * 1.15f;
+			scale = maxElement/maxSize * 0.4f;
 
 		}
 

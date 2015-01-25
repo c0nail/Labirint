@@ -13,6 +13,12 @@ public class PartLab : MonoBehaviour {
 
 	public void SetWall(int x)
 	{
+		this.GetComponent<SpriteRenderer> ().color = Color.white;
+		leftWall.enabled = false;
+		rightWall.enabled = false;
+		topWall.enabled = false;
+		botWall.enabled = false;
+
 		if (x == 15) {
 			leftWall.enabled = true;
 			rightWall.enabled = true;

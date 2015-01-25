@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public interface IFinder {
 
-	void Find(ILabirint labirint, IDraw drawLab);
+	List<Vector3> Find(ILabirint labirint, IDraw drawLab);
 }

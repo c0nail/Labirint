@@ -52,6 +52,9 @@ public class MazeMatrix : ILabirint {
 				matrix[i,j] -=128;
 			}
 		}
+
+		matrix [_startX, _startY] -= 8;
+		matrix [_finishX, _finishY] -= 2;
 	}
 
 	public int[,] GetLab()
