@@ -4,7 +4,6 @@ using UnityEngine;
 public class Drawing
 {
 	//****************************************************************************************************
-	//  static function DrawLine(rect : Rect) : void
 	//  static function DrawLine(rect : Rect, color : Color) : void
 	//  static function DrawLine(rect : Rect, width : float) : void
 	//  static function DrawLine(rect : Rect, color : Color, width : float) : void
