@@ -3,6 +3,11 @@ using System.Collections;
 
 public class CreateBlock : MonoBehaviour, ICreater {
 
+
+
+
+
+
 	public GameObject[] blocks;
 	public int SizePool;
 	Vector3 pos = new Vector3 (0, -200, 0);
