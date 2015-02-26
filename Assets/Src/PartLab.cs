@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PartLab : MonoBehaviour {
 
+
+
+
 	public SpriteRenderer leftWall;
 	public SpriteRenderer rightWall;
 	public SpriteRenderer topWall;
